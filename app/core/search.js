@@ -14,6 +14,7 @@ function getLunr (config) {
   if (instance === null) {
     instance = require('lunr');
     require('lunr-languages/lunr.stemmer.support')(instance);
+    require("lunr-languages/tinyseg")(lunr);
     require('lunr-languages/lunr.multi')(instance);
     config.searchExtraLanguages.forEach(lang =>
       require('lunr-languages/lunr.' + lang)(instance)
